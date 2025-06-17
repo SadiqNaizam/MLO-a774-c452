@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
+	darkMode: ["class"], // Kept for potential future use, not specified in PRD for current design
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -51,23 +51,19 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
 				}
+        // Removed 'sidebar' color object as it's not defined in the PRD designSystem
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // Corresponds to 0.5rem from --radius CSS variable (PRD: rounded-lg)
+				md: 'calc(var(--radius) - 2px)', // e.g., 0.5rem - 2px
+				sm: 'calc(var(--radius) - 4px)'  // e.g., 0.5rem - 4px
 			},
+      fontFamily: {
+        // Sets the default sans-serif font stack to use the --font-primary CSS variable.
+        // --font-primary is defined in src/index.css based on PRD: "Inter, system-ui, sans-serif"
+        sans: ['var(--font-primary)'],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
